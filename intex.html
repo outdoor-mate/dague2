@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매장 이용 안내</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            background-color: #007bff;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .language-btn {
+            background-color: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .language-btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* 매장명 스타일 */
+        .store-name {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* 항목 스타일 */
+        .content p {
+            font-size: 14px;
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .content h2, .content h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .menu, .alert, .store-notice, .review-event {
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 메뉴 항목 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        ul li {
+            font-size: 14px;
+            color: #333;
+            margin: 5px 0;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #007bff;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* 링크 스타일 */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 버튼 스타일 */
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="title">매장 이용 안내</span>
+            <button class="language-btn" id="language-btn">ENGLISH</button>
+        </div>
+
+        <div class="content">
+            <h1 class="store-name" id="store-name">메이트 치킨</h1>
+            <p id="address"><strong>주소:</strong> 서울시 강남구 삼성로85길 26</p>
+            <p id="hours"><strong>운영시간:</strong> 11:00 ~ 22:00 매일</p>
+            <p id="holiday"><strong>휴무일:</strong> 연중무휴</p>
+            <p id="phone"><strong>전화번호:</strong> 010-0000-0000</p>
+            
+            <div class="menu">
+                <h2>대표메뉴</h2>
+                <ul>
+                    <li id="menu-1">고추바사삭</li>
+                    <li id="menu-2">황금올리브</li>
+                    <li id="menu-3">생맥주</li>
+                </ul>
+            </div>
+            
+            <div class="alert">
+                <h3>알러지 주의</h3>
+                <p id="allergy">가지, 콩, 돼지고기 알러지가 있으신 고객님들은 사전에 직원에게 말씀해주세요.</p>
+            </div>
+            
+            <div class="store-notice">
+                <h3>가게 알림</h3>
+                <p id="store-notice">5인 이상 단체 고객은 예약 부탁드립니다.</p>
+            </div>
+            
+            <div class="review-event">
+                <h3>네이버 리뷰 이벤트</h3>
+                <p id="review-event"><a href="https://naver.com">리뷰 작성 시 음료수 한 캔 무료!</a></p>
+            </div>
+
+            <a href="#" class="button">방문하기</a>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            "en": {
+                "store-name": "Mate Chicken",
+                "address": "Address: 26, Samseong-ro 85-gil, Gangnam-gu, Seoul",
+                "hours": "Operating Hours: 11:00 AM - 10:00 PM daily",
+                "holiday": "Closed: Open all year round",
+                "phone": "Phone: 010-0000-0000",
+                "menu-1": "Gochoo Basak",
+                "menu-2": "Golden Olive",
+                "menu-3": "Draft Beer",
+                "allergy": "Please inform staff if you have allergies to eggplant, soybeans, or pork.",
+                "store-notice": "For groups of 5 or more, please make a reservation.",
+                "review-event": "Write a review to get a free drink!"
+            }
+        };
+
+        document.getElementById('language-btn').addEventListener('click', function() {
+            let currentLanguage = document.getElementById('language-btn').innerText;
+            if (currentLanguage === "ENGLISH") {
+                translatePage("en");
+                document.getElementById('language-btn').innerText = "日本語";
+            } else if (currentLanguage === "日本語") {
+                // 일본어로 번역 추가 예정
+                translatePage("ja");
+                document.getElementById('language-btn').innerText = "中文";
+            } else {
+                // 중국어로 번역 추가 예정
+                translatePage("zh");
+                document.getElementById('language-btn').innerText = "ENGLISH";
+            }
+        });
+
+        function translatePage(language) {
+            const translation = translations[language];
+            for (const key in translation) {
+                if (translation.hasOwnProperty(key)) {
+                    document.getElementById(key).innerText = translation[key];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
